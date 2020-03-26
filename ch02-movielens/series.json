@@ -14,3 +14,7 @@
 { "id": "33493", "title" : "Star Wars: Episode III - Revenge of the Sith", "year":"2005" , "genre":["Action", "Adventure", "Sci-Fi"], "type" : "film" , "film_to_franchise":{"name":"film","parent":1}}
 { "create" : { "_index" : "series",  "_id" : "122886", "routing" : "1" } }
 { "id": "122886", "title" : "Star Wars: Episode VII - The Force Awakens", "year":"2015" , "genre":["Action", "Adventure", "Fantasy", "Sci-Fi", "IMAX"], "type" : "film" , "film_to_franchise":{"name":"film","parent":1}}
+{ "create" : { "_index" : "series",  "_id" : "9999"} }
+{ "id": "9999", "title" : "UTV Motion Pictures" ,"film_to_franchise" : "franchise", "type":"franchise" }
+{ "create" : { "_index" : "series",  "_id" : "99990", "routing" : "9999" } }
+{ "id": "99990", "title" : "Chennai Expres", "year":"2010" , "genre":["Comedy"], "type" : "film" , "film_to_franchise":{"name":"film","parent":9999}}
