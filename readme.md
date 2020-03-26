@@ -1,5 +1,7 @@
 ##########ch-01
- Reference https://sundog-education.com/elasticsearch/
+
+```
+Reference https://sundog-education.com/elasticsearch/
  
  
 PUT /shakespeare
@@ -16,12 +18,13 @@ PUT /shakespeare
  
  
  curl -H 'Content-Type: application/json' -XGET 'http://127.0.0.1:9200/shakespeare/_search?pretty' -d '{"query" : {"match_phrase" : {"text_entry" : "to be or not to be"}}}'
-
+```
 
 #######  ch-02
+```
 http://files.grouplens.org/datasets/movielens/ml-latest-small.zip
 
-```
+
 DELETE /movies
 GET /movies/_mapping
 
@@ -81,7 +84,9 @@ GET  /movies/_search
 
   }
 }
+```
 
+```
 
 DELETE /series
 PUT /series?include_type_name=true
