@@ -1,0 +1,6 @@
+{
+      "properties": {
+        "type": { "type": "keyword" }, 
+        "year" : {"type": "date"}
+      }
+}
