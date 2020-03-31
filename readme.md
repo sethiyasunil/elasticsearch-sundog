@@ -292,6 +292,7 @@ Nexted Aggregations : -page 0189
 ```
 
 ## filebeat
+```
 Refer page 213
 download https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
 scp -P 2200 D:\sunil\setups\elasticsearch\ubantu\filebeat-7.6.1-amd64.deb e@localhost:/home/e/sunil
@@ -345,5 +346,49 @@ POST /_sql/translate?pretty
 
 
 ## running multiple nodes
+
+Edit elasticsearch.yml
+cd /etc/elasticsearch
+vim elasticsearch.yml
 ```
+cluster.name: cluster-movies
+node.name: node-1
+http.port: 9200	
+cluster.initial_master_nodes: ["node-1", "node-2","node-3"]
+node.max.local.storage.nodes=3
+```
+
+Copy entire elasticnode  folder. 
+```
+cd /etc
+sudo cp -rp elasticsearch elasticsearch-node2
+sudo cp -rp elasticsearch elasticsearch-node3
+```
+
+
+Update /etc/elasticsearch-node2/elasticsearch.yml
+```
+cluster.name: cluster-movies
+node.name: node-2
+http.port: 9201	
+```
+
+Update /etc/elasticsearch-node3/elasticsearch.yml
+```
+cluster.name: cluster-movies
+node.name: node-3
+http.port: 9202
+```
+
+Update configuration
+```
+cd :/usr/lib/systemd/system
+cp elasticsearch.service elasticsearch-node2.service
+cp elasticsearch.service elasticsearch-node3.service
+
+vim elasticsearch-node2.service
+	Environment=ES_PATH_CONF=/etc/elasticsearch-node2
+	
+vim elasticsearch-node3.service
+	Environment=ES_PATH_CONF=/etc/elasticsearch-node3	
 ```
